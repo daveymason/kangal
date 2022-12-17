@@ -1,6 +1,8 @@
 import Head from 'next/head'
 import Footer from '@components/Footer'
 import Jumbotron from '@components/Jumbotron.jsx'
+import Intro from '@components/Intro.jsx'
+import { Grid } from '@mui/material'
 
 export default function Home() {
   return (
@@ -14,9 +16,12 @@ export default function Home() {
 />
 
       </Head>
-      <main>
-      <Jumbotron />
-      </main>
+      <Grid container sx={{p:5}}>
+        <Grid item xs={12} sm={5} sx={{mt:5}}>
+          <Jumbotron />
+        </Grid>
+      </Grid>
+      <Grid item xs={12} sm={7} sx={{mt:5}}/>
       <Footer />
     </div>
   )

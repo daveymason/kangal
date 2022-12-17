@@ -20,7 +20,7 @@ main {
 }
 
 .container {
-  height: 100vh;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -29,7 +29,6 @@ main {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
 }
 
 body {
