@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Footer from '@components/Footer'
-import Jumbotron from '@components/Jumbotron'
+import Jumbotron from '@components/Jumbotron.jsx'
 
 export default function Home() {
   return (

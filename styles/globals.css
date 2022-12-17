@@ -31,3 +31,17 @@ main {
   background-repeat: no-repeat;
 
 }
+
+body {
+  background-color: #734b2e;
+  color: #f7f7f7;
+}
+
+a {
+  color: #fbbc04;
+}
+
+button {
+  background-color: #d7263d;
+  color: #f7f7f7;
+}
