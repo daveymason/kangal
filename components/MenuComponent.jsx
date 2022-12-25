@@ -1,63 +1,76 @@
-import React, { Component } from 'react';
-import {
-  Menu,
-  MenuItem,
-  Button,
-  Typography,
-} from '@mui/material';
+import React, { useRef, useState, useEffect } from 'react';
+import { AppBar, Button, IconButton, Toolbar } from '@mui/material';
+import HomeIcon from '@mui/icons-material/Home';
+import InfoIcon from '@mui/icons-material/Info';
+import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
+import PetsIcon from '@mui/icons-material/Pets';
+import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
+import PhoneIcon from '@mui/icons-material/Phone';
+import classNames from 'classnames';
 
+function MenuComponent() {
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const [offsetTop, setOffsetTop] = useState(0);
+  const appBarRef = useRef(null);
 
-class MenuComponent extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      anchorEl: null,
+  useEffect(() => {
+    function handleScroll() {
+      setScrollPosition(window.pageYOffset);
+    }
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
     };
-  }
+  }, []);
 
-  handleClick = (event) => {
-    this.setState({ anchorEl: event.currentTarget });
-  };
+  useEffect(() => {
+    if (appBarRef.current) {
+      setOffsetTop(appBarRef.current.offsetTop);
+    }
+  }, [appBarRef]);
 
-  handleClose = () => {
-    this.setState({ anchorEl: null });
-  };
+  const stickyClass = classNames({
+    'app-bar': true,
+    sticky: scrollPosition >= offsetTop,
+  });
 
-  render() {
-    const { anchorEl } = this.state;
+  const toolbarClass = 'toolbar';
+  const linkClass = classNames({
+    'link': true,
+    'link-hover': true,
+  });
 
-    return (
-      <div>
-        <Button
-          aria-controls="menu"
-          aria-haspopup="true"
-          onClick={this.handleClick}
-        >
-          <Typography variant="h6">Menu</Typography>
+  return (
+      <AppBar position="static" ref={appBarRef} className={stickyClass}>
+        <Toolbar className={toolbarClass}>
+        <IconButton edge="start" color="inherit" aria-label="menu">
+          <HomeIcon />
+        </IconButton>
+        <Button color="inherit" className={linkClass}>
+          <InfoIcon />
+          About
         </Button>
-        <Menu
-          id="menu"
-          anchorEl={anchorEl}
-          keepMounted
-          open={Boolean(anchorEl)}
-          onClose={this.handleClose}
-        >
-          <MenuItem onClick={this.handleClose}>
-            <Typography variant="body1">Home</Typography>
-          </MenuItem>
-          <MenuItem onClick={this.handleClose}>
-            <Typography variant="body1">About Kangal Dogs</Typography>
-          </MenuItem>
-          <MenuItem onClick={this.handleClose}>
-            <Typography variant="body1">Training and Care</Typography>
-          </MenuItem>
-          <MenuItem onClick={this.handleClose}>
-            <Typography variant="body1">Breeding and Puppies</Typography>
-          </MenuItem>
-        </Menu>
-      </div>
-    );
-  }
+        <Button color="inherit" className={linkClass}>
+          <LocalHospitalIcon />
+          Health
+        </Button>
+        <Button color="inherit" className={linkClass}>
+          <PetsIcon />
+          Age
+        </Button>
+        <Button color="inherit" className={linkClass}>
+          <DirectionsCarIcon />
+          Rescue
+        </Button>
+        <Button color="inherit" className={linkClass}>
+          <PhoneIcon />
+          Contact
+        </Button>
+      </Toolbar>
+    </AppBar>
+  );
 }
 
 export default MenuComponent;
