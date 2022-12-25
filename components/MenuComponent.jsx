@@ -4,8 +4,8 @@ import HomeIcon from '@mui/icons-material/Home';
 import InfoIcon from '@mui/icons-material/Info';
 import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
 import PetsIcon from '@mui/icons-material/Pets';
-import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
-import PhoneIcon from '@mui/icons-material/Phone';
+import RoofingIcon from '@mui/icons-material/Roofing';
+import EmailIcon from '@mui/icons-material/Email';
 
 import LanguageIcon from '@mui/icons-material/Language';
 import classNames from 'classnames';
@@ -70,11 +70,11 @@ function MenuComponent() {
       Age
     </Button>
     <Button color="inherit" className={linkClass}>
-      <DirectionsCarIcon />
+      <RoofingIcon />
       Rescue
     </Button>
     <Button color="inherit" className={linkClass}>
-      <PhoneIcon />
+      <EmailIcon />
       Contact
     </Button>
     <div className="language-buttons">
