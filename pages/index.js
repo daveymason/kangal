@@ -18,8 +18,8 @@ export default function Home() {
 
       </Head>
       <MenuComponent />
-      <Grid container sx={{p:5, mt:5}} className="introSectionHome">
-        <Grid item xs={4} sm={5} sx={{mt:5}}>
+      <Grid container sx={{p:5}} className="introSectionHome">
+        <Grid item xs={4} sm={5} sx={{mt:3}}>
         <Intro
           title="Kangal"
           text="The Kangal Dog is a large, brave and loyal breed originating from Turkey. These majestic dogs are known for their protective nature and have been used for centuries to guard sheep and other livestock. They are highly intelligent and easily trained, making them excellent working dogs. This website is dedicated to providing information about Kangal Dogs, including their history, physical characteristics, and unique personality traits. Whether you are looking for a loyal guardian for your property or a loyal companion for your family, the Kangal Dog may be the perfect fit."
