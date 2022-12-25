@@ -9,7 +9,7 @@ export default function Home() {
     <div className="container">
       <Head>
         <title>Kangal</title>
-        <link rel="icon" href="/bg.jpg" />
+        <link rel="icon" href="/logo.png" />
           <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
