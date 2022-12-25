@@ -3,19 +3,21 @@ import Footer from '@components/Footer'
 import Jumbotron from '@components/Jumbotron.jsx'
 import Intro from '@components/Intro.jsx'
 import { Grid } from '@mui/material'
+import MenuComponent from '@components/MenuComponent'
 
 export default function Home() {
   return (
     <div className="container">
       <Head>
         <title>Kangal</title>
-        <link rel="icon" href="/logo.png" />
+        <link rel="icon" href="/logoWhite.png" />
           <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
 
       </Head>
+      <MenuComponent />
       <Grid container sx={{p:5, mt:5}} className="introSectionHome">
         <Grid item xs={4} sm={5} sx={{mt:5}}>
         <Intro
