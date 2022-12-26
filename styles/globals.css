@@ -92,6 +92,7 @@ p {
   bottom: 0;
   box-shadow: 2px 2px 4px #282828;
   margin: 0;
+  padding: 0;
 }
 
 .stickyFooter a {
@@ -120,6 +121,7 @@ p {
   border-radius: 10px;
   margin: 2rem 0;
   background-color: #eee;
+  padding: 0;
 }
 
 .app-bar {

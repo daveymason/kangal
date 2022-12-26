@@ -150,7 +150,7 @@ export default function Home() {
           {language === "english" ? (
             <Intro
               title="Kangal"
-              text="This website is focused on providing information and resources related to Kangal dogs, a breed native to Turkey. It includes information about the breed's history, characteristics, and suitability as a pet. It also provides resources for those interested in adopting or rescuing a Kangal, including information on reputable breeders and rescue organizations. The website also includes a section on health and care for Kangal dogs, with tips on nutrition, exercise, and common health issues to be aware of. Overall, the goal of the website is to promote the responsible ownership of Kangal dogs and to provide a helpful resource for those interested in this breed"
+              text="This website is focused on providing information and resources related to Kangal dogs, a breed native to Turkey. It includes information about the breed's history, characteristics, and suitability as a pet. It also provides resources for those interested in adopting or rescuing a Kangal, including information on reputable breeders and rescue organizations. The website also includes a section on health and care for Kangal dogs, with tips on nutrition, exercise, and common health issues to be aware of. Overall, the goal of the website is to promote the responsible ownership of Kangal dogs and to provide a helpful resource for those interested in this breed."
             />
           ) : (
             <Intro
@@ -163,7 +163,7 @@ export default function Home() {
 
       <Grid container className="about">
         <Grid item xs={1} />
-        <Grid item xs={10}>
+        <Grid item xs={10} id="Kangal or AS?">
           {language === "english" ? (
             <Jumbotron
               title="Kangal or Anatolian Shepherd?"
@@ -178,7 +178,7 @@ export default function Home() {
         </Grid>
         <Grid item xs={1} />
 
-        <Grid item xs={6}>
+        <Grid item xs={6} id="Images of Kangal and AS">
           <img src="/kangal.jpg" alt="Kangal" className="boxedContent" />
           <img src="/anatolian.jpg" alt="Anatolian" className="boxedContent" />
         </Grid>
@@ -188,7 +188,6 @@ export default function Home() {
             <>
               <Typography
                 variant="h4"
-                component="h3"
                 sx={{ pb: 1, p: 3, color: "#734b2e" }}
               >
                 Differences
@@ -210,19 +209,19 @@ export default function Home() {
                   <ListItemIcon fontSize="small">
                     <BulletIcon />
                   </ListItemIcon>
-                  <ListItemText primary="Kangal Dogs are generally larger and heavier than Anatolian Shepherds" />
+                  <ListItemText primary="Kangal Dogs are generally larger and heavier than Anatolian Shepherds." />
                 </ListItem>
                 <ListItem sx={{ py: 0 }}>
                   <ListItemIcon fontSize="small">
                     <BulletIcon />
                   </ListItemIcon>
-                  <ListItemText primary="Kangal Dogs have a shorter, thicker coat compared to the longer, finer coat of Anatolian Shepherds" />
+                  <ListItemText primary="Kangal Dogs have a shorter, thicker coat compared to the longer, finer coat of Anatolian Shepherds." />
                 </ListItem>
-                <ListItem sx={{ py: 0 }}>
+                <ListItem sx={{ pt: 0, pb:2 }}>
                   <ListItemIcon fontSize="small">
                     <BulletIcon />
                   </ListItemIcon>
-                  <ListItemText primary="Kangal Dogs are known for their gentle and protective nature, while Anatolian Shepherds are known for their independent nature and strong will" />
+                  <ListItemText primary="Kangal Dogs are known for their gentle and protective nature, while Anatolian Shepherds are known for their independent nature and strong will." />
                 </ListItem>
               </List>
             </>
@@ -298,7 +297,11 @@ export default function Home() {
         <img src="/oldKangal.jpg" alt="oldKangal" className="boxedContent" width={400}/>
         </Grid>
 
-        <Grid item xs={4} className="boxedContent">
+        <Grid item xs={6} id="babyKangal">
+        <img src="/babyKangal.jpg" alt="babyKangal" className="boxedContent" width={600}/>
+        </Grid>
+
+        <Grid item xs={4} className="boxedContent GeneralFacts">
           {language === "english" ? (
             <>
               <Typography
@@ -333,7 +336,7 @@ export default function Home() {
                   </ListItemIcon>
                   <ListItemText primary="Kangal Dogs have a lifespan of about 12-15 years." />
                 </ListItem>
-                <ListItem sx={{ py: 0 }}>
+                <ListItem sx={{ pt: 0, pb:2 }}>
                   <ListItemIcon fontSize="small">
                     <BulletIcon />
                   </ListItemIcon>
