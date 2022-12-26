@@ -1,48 +1,27 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useContext } from 'react';
 import { Grid, AppBar, Button, IconButton, Toolbar, ButtonGroup, Radio } from '@mui/material';
-import HomeIcon from '@mui/icons-material/Home';
 import InfoIcon from '@mui/icons-material/Info';
 import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
 import PetsIcon from '@mui/icons-material/Pets';
 import RoofingIcon from '@mui/icons-material/Roofing';
 import EmailIcon from '@mui/icons-material/Email';
 
-import LanguageIcon from '@mui/icons-material/Language';
 import classNames from 'classnames';
 
-function MenuComponent() {
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const [offsetTop, setOffsetTop] = useState(0);
-  const [language, setLanguage] = useState('english');
+import { LanguageContext } from 'context/LanguageContext';
+import LanguageSwitcher from '@components/LanguageSwitcher';
 
-  const appBarRef = useRef(null);
+function MenuComponent() {
+  const { language, setLanguage } = useContext(LanguageContext);
+  console.log('language', language);
 
   const handleLanguageChange = (event) => {
     setLanguage(event.target.value);
   };
 
-  useEffect(() => {
-    function handleScroll() {
-      setScrollPosition(window.pageYOffset);
-    }
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (appBarRef.current) {
-      setOffsetTop(appBarRef.current.offsetTop);
-    }
-  }, [appBarRef]);
-
   const stickyClass = classNames({
     'app-bar': true,
-    sticky: scrollPosition >= offsetTop,
-  });
+    'sticky': true,  });
 
   const toolbarClass = 'toolbar';
   const linkClass = classNames({
@@ -51,63 +30,42 @@ function MenuComponent() {
   });
 
   return (
-<AppBar position="static" ref={appBarRef} className={stickyClass}>
+    <LanguageContext.Provider value={language}>
+      <AppBar position="static" className={stickyClass}>
   <Toolbar className={toolbarClass} >
     <Grid container justifyContent="space-between">
-    <IconButton edge="start" color="inherit" aria-label="menu">
+    <IconButton edge="start" color="inherit" aria-label="menu" className={linkClass}>
       <img src="/logoWhite.png" alt="Logo" style={{ height: '3rem' }} />
     </IconButton>
     <Button color="inherit" className={linkClass}>
       <InfoIcon />
-      About
+      {language === 'english' ? 'About' : 'Hakkında'}
     </Button>
     <Button color="inherit" className={linkClass}>
       <LocalHospitalIcon />
-      Health
+      {language === 'english' ? 'Health' : 'Sağlık'}
     </Button>
     <Button color="inherit" className={linkClass}>
       <PetsIcon />
-      Age
+      {language === 'english' ? 'Age' : 'Yaş'}
     </Button>
     <Button color="inherit" className={linkClass}>
       <RoofingIcon />
-      Rescue
+      {language === 'english' ? 'Rescue' : 'Kurtarma'}
     </Button>
     <Button color="inherit" className={linkClass}>
       <EmailIcon />
-      Contact
+      {language === 'english' ? 'Contact' : 'İletişim'}
     </Button>
+    <LanguageSwitcher language={language} />
     <div className="language-buttons">
-      <ButtonGroup size="small" aria-label="language" color="primary">
-        <Radio
-          checked={language === 'english'}
-          onChange={handleLanguageChange}
-          value="english"
-          icon={
-            <img src="/englishIcon.png" alt="English" style={{ height: '1.5rem' }} />
-          }
-          checkedIcon={
-            <img
-              src="/englishIcon.png"
-              alt="EnglishChecked"
-              style={{ height: '2.5rem' }}
-            />
-          }
-        />
-            <Radio
-              checked={language === 'turkish'}
-              onChange={handleLanguageChange}
-              value="turkish"
-              icon={<img src="/turkeyIcon.png" alt="Turkish" style={{ height: '1.5rem' }} />
-            }
-              checkedIcon={<img src="/turkeyIcon.png" alt="TurkishChecked" style={{ height: '2.5rem' }} />
-            }
-            />
-          </ButtonGroup>
+
         </div>
       </Grid>
       </Toolbar>
       </AppBar>
+
+    </LanguageContext.Provider>
   );
 }
 
