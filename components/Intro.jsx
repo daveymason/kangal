@@ -17,11 +17,9 @@ export default function Intro({ title, text }) {
     { label: '', icon: <EmailIcon />, style: { backgroundColor: '#e57373' } },
   ];
   
-  
-
   return (
     <Box
-      className="jumbotron"
+      className="introSplash"
       display="flex"
       alignItems="center"
       justifyContent="center"

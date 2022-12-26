@@ -9,11 +9,10 @@ export default function Jumbotron({ title, text }) {
     justifyContent="center"
     flexDirection="column"
   >
-    <Typography variant="h3" component="h1" sx={{ p: 2, color: '#734b2e' }}>
+    <Typography variant="h4" component="h3" sx={{ pb: 1, p:3, color: '#734b2e' }}>
       {title}
     </Typography>
-    <Divider />
-    <Typography variant="subtitle1" sx={{ p: 3, color: '#333' }}>
+    <Typography variant="p" sx={{ p: 3, pt:1, color: '#333' }}>
       {text}
     </Typography>
   </Box>
