@@ -1,20 +1,20 @@
-import { Box, Button } from '@mui/material';
+import { Button } from '@mui/material';
 
 const GroupButton = ({ buttons }) => {
   return (
-    <Box display="flex" justifyContent="space-around">
+    <div className="button-container">
       {buttons.map((button) => (
         <Button
-        key={button.label}
-        variant="contained"
-        color={button.color}
-        startIcon={button.icon}
-        label=""
-      >
-          {button.label}
+          key={button.label}
+          variant="contained"
+          color={button.color}
+          className="button"
+          style={button.style}
+        >
+            {button.icon}
         </Button>
       ))}
-    </Box>
+    </div>
   );
 };
 

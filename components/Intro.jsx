@@ -10,13 +10,14 @@ import EmailIcon from '@mui/icons-material/Email';
 
 export default function Intro({ title, text }) {
   const buttons = [
-    { label: '', icon: <HomeIcon />, color: '#734b2e' },
-    { label: '', icon: <InfoIcon />, color: '#ffb74d' },
-    { label: '', icon: <LocalHospitalIcon />, color: '#81c784' },
-    { label: '', icon: <PetsIcon />, color: '#9575cd' },
-    { label: '', icon: <RoofingIcon />, color: '#64b5f6' },
-    { label: '', icon: <EmailIcon />, color: '#e57373' },
+    { label: '', icon: <InfoIcon />, style: { backgroundColor: '#ffb74d' } },
+    { label: '', icon: <LocalHospitalIcon />, style: { backgroundColor: '#81c784' } },
+    { label: '', icon: <PetsIcon />, style: { backgroundColor: '#9575cd' } },
+    { label: '', icon: <RoofingIcon />, style: { backgroundColor: '#64b5f6' } },
+    { label: '', icon: <EmailIcon />, style: { backgroundColor: '#e57373' } },
   ];
+  
+  
 
   return (
     <Box
