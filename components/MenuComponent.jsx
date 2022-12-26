@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useContext } from 'react';
 import { Grid, AppBar, Button, IconButton, Toolbar, ButtonGroup, Radio } from '@mui/material';
 import InfoIcon from '@mui/icons-material/Info';
 import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
@@ -9,11 +9,11 @@ import EmailIcon from '@mui/icons-material/Email';
 import classNames from 'classnames';
 
 import { LanguageContext } from 'context/LanguageContext';
-import { useContext } from 'react';
+import LanguageSwitcher from '@components/LanguageSwitcher';
 
 function MenuComponent() {
   const { language, setLanguage } = useContext(LanguageContext);
-
+  console.log('language', language);
 
   const handleLanguageChange = (event) => {
     setLanguage(event.target.value);
@@ -57,33 +57,9 @@ function MenuComponent() {
       <EmailIcon />
       {language === 'english' ? 'Contact' : 'İletişim'}
     </Button>
+    <LanguageSwitcher language={language} />
     <div className="language-buttons">
-      <ButtonGroup size="small" aria-label="language" color="primary">
-        <Radio
-          checked={language === 'english'}
-          onChange={handleLanguageChange}
-          value="english"
-          icon={
-            <img src="/englishIcon.png" alt="English" style={{ height: '1.5rem' }} />
-          }
-          checkedIcon={
-            <img
-              src="/englishIcon.png"
-              alt="EnglishChecked"
-              style={{ height: '2.5rem' }}
-            />
-          }
-        />
-            <Radio
-              checked={language === 'turkish'}
-              onChange={handleLanguageChange}
-              value="turkish"
-              icon={<img src="/turkeyIcon.png" alt="Turkish" style={{ height: '1.5rem' }} />
-            }
-              checkedIcon={<img src="/turkeyIcon.png" alt="TurkishChecked" style={{ height: '2.5rem' }} />
-            }
-            />
-      </ButtonGroup>
+
         </div>
       </Grid>
       </Toolbar>
