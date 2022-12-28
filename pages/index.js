@@ -2,7 +2,6 @@ import Head from "next/head";
 import Footer from "@components/Footer";
 import Jumbotron from "@components/Jumbotron.jsx";
 import Intro from "@components/Intro.jsx";
-import GPT from "@components/GPT.jsx";
 
 import {
   Grid,
@@ -25,7 +24,7 @@ import RoofingIcon from "@mui/icons-material/Roofing";
 import EmailIcon from "@mui/icons-material/Email";
 import BulletIcon from "@mui/icons-material/FiberManualRecord";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import classNames from "classnames";
 
@@ -36,14 +35,22 @@ import generateText from './openai';
 export default function Home() {
   const [language, setLanguage] = useState("english");
   const [generatedText, setGeneratedText] = useState('');
+  const [error, setError] = useState(null);
 
-  const handleClick = async () => {
-    const prompt = 'The quick brown fox jumps over the lazy dog.';
-    const length = 50;
-    const response = await generateText(prompt, length);
-    console.log(response)
-    setGeneratedText(response.data.text);
-  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const prompt = 'The quick brown fox jumps over the lazy dog.';
+        const length = 50;
+        const response = await generateText(prompt, length);
+        setGeneratedText(response.data.text);
+      } catch (e) {
+        setError(e.message);
+      }
+    };
+    fetchData();
+  }, []);
 
   const handleLanguageChange = (event) => {
     setLanguage(event.target.value);
@@ -405,10 +412,14 @@ export default function Home() {
       </Grid>
 
       <Grid container spacing={2} className="boxedContent">
-        <Button variant="contained" color="primary" onClick={handleClick}>Generate Text</Button>
-        <Typography variant="h4" component="h3" sx={{ pb: 1, p: 3, color: "#734b2e" }}>
-          {generatedText}
-        </Typography>
+      <Button variant="contained" color="primary" onClick={() => setGeneratedText('')}>
+        Generate Text
+      </Button>
+      {error ? (
+        <Typography variant="body1" color="error">{error}</Typography>
+      ) : (
+        <Typography variant="body1">{generatedText}</Typography>
+      )}
       </Grid>
 
       <Footer />
