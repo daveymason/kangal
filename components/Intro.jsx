@@ -1,37 +1,50 @@
 import { Box, Typography } from '@mui/material';
-import GroupButton from '@components/ui/GroupButton/GroupButton';
+import Button from '@mui/material/Button';
+import ConstructionIcon from '@mui/icons-material/Construction';
 
-import HomeIcon from '@mui/icons-material/Home';
-import InfoIcon from '@mui/icons-material/Info';
-import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
-import PetsIcon from '@mui/icons-material/Pets';
-import RoofingIcon from '@mui/icons-material/Roofing';
-import EmailIcon from '@mui/icons-material/Email';
 
-export default function Intro({ title, text }) {
-  const buttons = [
-    { label: '', icon: <InfoIcon />, style: { backgroundColor: '#ffb74d' } },
-    { label: '', icon: <LocalHospitalIcon />, style: { backgroundColor: '#81c784' } },
-    { label: '', icon: <PetsIcon />, style: { backgroundColor: '#9575cd' } },
-    { label: '', icon: <RoofingIcon />, style: { backgroundColor: '#64b5f6' } },
-    { label: '', icon: <EmailIcon />, style: { backgroundColor: '#e57373' } },
-  ];
-  
+
+export default function Intro() {
+
   return (
-    <Box
-      className="introSplash"
-      display="flex"
-      alignItems="center"
-      justifyContent="center"
-      flexDirection="column"
-    >
-      <Typography variant="h1" component="h1" sx={{ mb: 3, color: '#734b2e' }}>
-        {title}
-      </Typography>
-      <Typography variant="subtitle1" sx={{ p: 3 }}>
-        {text}
-      </Typography>
-      <GroupButton buttons={buttons} />
-    </Box>
+<Box
+  className="introSplash"
+  display="flex"
+  alignItems="flex-start"
+  justifyContent="center"
+  flexDirection="column"
+  sx={{ textAlign: 'left', p: 3 }}
+>
+  <Typography variant="h3" sx={{ mb: 2, color: '#323232'}}>
+    Your <span style={{ color: '#d3cbb8', fontWeight: 'bold' }}>Best Friend</span> in <span style={{ color: '#7f8c8d', fontWeight: 'bold' }}>Cybersecurity</span>
+  </Typography>
+  
+  <Typography variant="body1" sx={{ mb: 3, maxWidth: '800px', color: '#323232' }}>
+    <b>Kangal Security</b> is the loyal companion you need, offering a 
+    <b> comprehensive suite of cybersecurity tools</b> that blend <em>proactive 
+    threat detection</em> with <em>seamless compliance support</em>.
+  </Typography>
+  
+  <Button 
+    variant="contained" 
+    href="/sniff" 
+    sx={{
+      backgroundColor: "#734b2e", 
+      color: "#ffffff",
+      padding: '0.75rem 1.5rem',
+      fontSize: '1rem',
+      display: 'flex',
+      alignItems: 'center',
+      boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.3)',
+      '&:hover': {
+        backgroundColor: "#5f3f23",
+      }
+    }}
+  >
+    <ConstructionIcon sx={{ marginRight: '8px' }} /> 
+    Explore Tools
+  </Button>
+</Box>
+
   );
 }

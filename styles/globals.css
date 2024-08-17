@@ -28,12 +28,13 @@ main {
 }
 
 .introSectionHome {
-  background: url('/bgnew.jpg');
+  background: url('/bg.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 97vh;
+  height: 100vh;
   align-items: center;
+  width: 100%;
 }
 
 a {
@@ -111,16 +112,17 @@ p {
 }
 
 .introSplash {
-  color: #ffffff;
+  color: #323232;
   box-shadow: 2px 2px 4px #282828;
   border-radius: 10px;
+  background-color: #eee;
 }
 
 .boxedContent {
   box-shadow: 2px 2px 4px #282828;
   border-radius: 10px;
   margin: 2rem 0;
-  background-color: #eee;
+  background-color: #eeeeee;
   padding: 0;
 }
 
